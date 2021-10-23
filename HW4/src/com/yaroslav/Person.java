@@ -1,13 +1,14 @@
 package com.yaroslav;
-import java.time.YearMonth;
+import java.util.Calendar;
+import java.util.Scanner;
 
 public class Person {
+    Scanner sc = new Scanner(System.in);
+
     private String name;
     private int birthYear;
 
     private int age;
-
-    int currentYear = YearMonth.now().getYear();
 
     public Person(String name, int birthYear)
     {
@@ -40,21 +41,30 @@ public class Person {
         this.birthYear = birthYear;
     }
 
-    public int calculateAge(int age)
+    public int calculateAge()
     {
-        age = currentYear - birthYear;
-        return age;
+        return Calendar.getInstance().get(Calendar.YEAR) - birthYear;
     }
 
-    public void Input()
+    public void inputInfo()
     {
         String name = this.getName();
         int birthYear = this.getBirthYear();
     }
 
-    public void Output()
+    public void outputInfo()
     {
-        System.out.println("Person`s name is " + name);
-        System.out.println("Person`s birthyear is " + birthYear);
+        age = this.calculateAge();
+
+        System.out.println("Student`s name is " + name);
+        System.out.println("Student`s birthyear is " + birthYear);
+        System.out.println("Student`s age is " + age);
+    }
+
+    public void changeName()
+    {
+        System.out.println("Enter a new name: ");
+        String newName = sc.nextLine();
+        this.setName(newName);
     }
 }
