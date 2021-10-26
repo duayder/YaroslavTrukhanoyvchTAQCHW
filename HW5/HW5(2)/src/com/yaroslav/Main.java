@@ -1,54 +1,44 @@
 package com.yaroslav;
 
 import java.util.Arrays;
+import java.util.function.DoubleFunction;
 
 public class Main {
 
     public static void main(String[] args) {
-        Dog firstDog = new Dog("Bobik", Dog.Breed.Beagle, 3);
-        Dog secondDog = new Dog("Sharik", Dog.Breed.Akita, 5);
-        Dog thirdDog = new Dog("Tuzik", Dog.Breed.Hound, 7);
+        Dog[] dogs = new Dog[3];
+        dogs[0] = new Dog("Bobik", Dog.Breed.Beagle, 3);
+        dogs[1] = new Dog("Sharik", Dog.Breed.Akita, 5);
+        dogs[2] = new Dog("Tuzik", Dog.Breed.Hound, 7);
 
-        if(firstDog.getName().equals(secondDog.getName()))
+        int maximum = dogs[0].getAge();
+        int oldestDogIndex = 0;
+
+        for(int i = 0; i < dogs.length; i++)
         {
-            System.out.println("The names of first and second dogs match");
+            if(dogs[i].getAge() > maximum)
+            {
+                maximum = dogs[i].getAge();
+                oldestDogIndex++;
+            }
         }
 
-        else if(firstDog.getName().equals(thirdDog.getName()))
+        int j;
+        for(int i = 0; i < dogs.length; i++)
         {
-            System.out.println("The names of first and third dogs match");
+            for(j = i + 1; j < dogs.length; j++)
+            {
+                if(dogs[i].getName()!=dogs[j].getName())
+                {
+                    System.out.println(dogs[i].getName() + " doesn`t match " + dogs[j].getName());
+                }
+                else
+                {
+                    System.out.println(dogs[i].getName() + " matches " + dogs[j].getName());
+                }
+            }
         }
 
-        else if(secondDog.getName().equals(thirdDog.getName()))
-        {
-            System.out.println("The names of second and third dogs match");
-        }
-
-        else
-        {
-            System.out.println("There are no dogs with matching names");
-        }
-
-        int [] arr = new int[3];
-        arr[0] = firstDog.getAge();
-        arr[1] = secondDog.getAge();
-        arr[2] = thirdDog.getAge();
-
-        Arrays.sort(arr);
-
-        if(firstDog.getAge() == arr[arr.length-1])
-        {
-            System.out.println(firstDog.getName() + " is the oldest dog. The dogs`s age is " + firstDog.getAge() + " ,the dog`s kind is " + firstDog.getDogBreed());
-        }
-
-        else if(secondDog.getAge() == arr[arr.length-1])
-        {
-            System.out.println(firstDog.getName() + " is the oldest dog. The dogs`s age is " + secondDog.getAge() + " ,the dog`s kind is " + secondDog.getDogBreed());
-        }
-
-        else if(thirdDog.getAge() == arr[arr.length-1])
-        {
-            System.out.println(thirdDog.getName() + " is the oldest dog. The dogs`s age is " + thirdDog.getAge() + " ,the dog`s kind is " + thirdDog.getDogBreed());
-        }
+        System.out.println("The oldest dog is " + maximum + " years old. The dog`s name is " + dogs[oldestDogIndex].getName() + ". The dog`s breed is " + dogs[oldestDogIndex].getDogBreed());
     }
 }
