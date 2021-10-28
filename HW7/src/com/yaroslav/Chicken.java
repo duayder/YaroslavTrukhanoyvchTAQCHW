@@ -1,10 +1,8 @@
 package com.yaroslav;
 
 public class Chicken extends NonFlyingBird{
-    public Chicken(String feathers, int layEggs)
-    {
-        this.feathers = feathers;
-        this.layEggs = layEggs;
+    Chicken(String feathers, int layEggs){
+        super(feathers, layEggs);
     }
 
     @Override

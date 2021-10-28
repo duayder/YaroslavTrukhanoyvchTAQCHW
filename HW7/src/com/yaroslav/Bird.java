@@ -5,6 +5,13 @@ public abstract class Bird {
     protected int layEggs;
     public abstract void Fly();
 
+    public Bird(){}
+    public Bird(String feathers, int layEggs)
+    {
+        this.feathers = feathers;
+        this.layEggs = layEggs;
+    }
+
     public String getFeathers() {
         return feathers;
     }

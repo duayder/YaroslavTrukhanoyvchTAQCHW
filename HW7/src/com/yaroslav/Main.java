@@ -10,7 +10,7 @@ public class Main {
         birds[3] = new Penguin("Black", 1);
 
         for(int i = 0; i < birds.length; i++){
-            System.out.println(birds[i].toString());
+            System.out.println(birds[i]);
             birds[i].Fly();
         }
     }

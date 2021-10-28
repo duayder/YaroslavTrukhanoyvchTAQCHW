@@ -1,10 +1,8 @@
 package com.yaroslav;
 
 public class Penguin extends NonFlyingBird{
-    public Penguin(String feathers, int layEggs)
-    {
-        this.feathers = feathers;
-        this.layEggs = layEggs;
+    Penguin(String feathers, int layEggs){
+        super(feathers, layEggs);
     }
 
     @Override

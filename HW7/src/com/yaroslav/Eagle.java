@@ -1,10 +1,8 @@
 package com.yaroslav;
 
 public class Eagle extends FlyingBird{
-    public Eagle(String feathers, int layEggs)
-    {
-        this.feathers = feathers;
-        this.layEggs = layEggs;
+    Eagle(String feathers, int layEggs){
+        super(feathers, layEggs);
     }
 
     @Override
