@@ -1,9 +1,13 @@
 package com.yaroslav;
 
-public class Employee {
+public abstract class Employee implements Calculation{
     private String employeeid;
     private String name;
-    private int salary;
+
+    public Employee(String name, String employeeid){
+        this.name = name;
+        this.employeeid = employeeid;
+    }
 
     public String getEmployeeid() {
         return this.employeeid;
@@ -17,16 +21,7 @@ public class Employee {
         return this.name;
     }
 
-    public void setName(String employeeid) {
+    public void setName(String name) {
         this.name = name;
     }
-
-    public int getSalary() {
-        return this.salary;
-    }
-
-    public void setSalary(){
-        this.salary = salary;
-    }
-
 }

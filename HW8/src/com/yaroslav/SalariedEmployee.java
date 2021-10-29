@@ -1,25 +1,20 @@
 package com.yaroslav;
 
-public class SalariedEmployee extends Employee implements Calculation{
+public class SalariedEmployee extends Employee{
     private String socialSecurityNumber;
-    private String name = getName();
-    private String employeeid = getEmployeeid();
     private int hoursWorked;
     private int hourlyWage;
 
     public SalariedEmployee (String name, String employeeid, String socialSecurityNumber, int hoursWorked, int hourlyWage)
     {
-        this.name = name;
-        this.employeeid = employeeid;
+        super(name, employeeid);
         this.socialSecurityNumber = socialSecurityNumber;
         this.hoursWorked = hoursWorked;
         this.hourlyWage = hourlyWage;
     }
 
     public int calculatePay(){
-        int salary = getSalary();
-        salary = hoursWorked * hourlyWage;
-        return salary;
+        return hoursWorked * hourlyWage;
     }
 
     public String getSocialSecurityNumber() {
@@ -49,8 +44,8 @@ public class SalariedEmployee extends Employee implements Calculation{
     @Override
     public String toString()
     {
-        return name + " is a salaried employee. " +
-                "\nThe employee`s id is " + employeeid +
+        return getName() + " is a salaried employee. " +
+                "\nThe employee`s id is " + getEmployeeid() +
                 "\nThe employee`s social security number is " + socialSecurityNumber +
                 "\nThe employee worked for " + hoursWorked + " hours and received " + hourlyWage + " USD per hour" +
                 "\nThe employee`s salary is " + calculatePay();

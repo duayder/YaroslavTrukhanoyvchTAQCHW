@@ -1,22 +1,17 @@
 package com.yaroslav;
 
-public class ContractEmployee extends Employee implements Calculation{
+public class ContractEmployee extends Employee{
     private String federalTaxIdMember;
-    private String name = getName();
-    private String employeeid = getEmployeeid();
     private int fixedPayment;
 
     ContractEmployee(String name, String employeeid, String federalTaxIdMember, int fixedPayment){
-        this.name = name;
-        this.employeeid = employeeid;
+        super(name, employeeid);
         this.federalTaxIdMember = federalTaxIdMember;
         this.fixedPayment = fixedPayment;
     }
 
     public int calculatePay(){
-        int salary = getSalary();
-        salary = fixedPayment;
-        return salary;
+        return fixedPayment;
     }
 
     public String getFederalTaxIdMember() {
@@ -38,8 +33,8 @@ public class ContractEmployee extends Employee implements Calculation{
     @Override
     public String toString()
     {
-        return name + " is a contract employee. " +
-                "\nThe employee`s id is " + employeeid +
+        return getName() + " is a contract employee. " +
+                "\nThe employee`s id is " + getEmployeeid() +
                 "\nThe employee`s federal tax member id is " + federalTaxIdMember +
                 "\nThe employee`s fixed payment is " + fixedPayment +
                 "\nThe employee`s salary is " + calculatePay();

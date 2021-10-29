@@ -12,7 +12,7 @@ public class Main {
         employees.add(new ContractEmployee("Anna", "3", "112", 450));
         employees.add(new ContractEmployee("Ace", "4", "113", 300));
 
-        employees.sort(Comparator.comparingInt(Employee::getSalary).reversed());
+        employees.sort(Comparator.comparingInt(Employee::calculatePay).reversed());
 
         System.out.println(employees);
     }
