@@ -7,7 +7,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("WILL THE BRICK PASS THROUGH THE HOLE?");
 
-        System.out.println("Enter the brick length and press ENTER: ");
+        System.out.println("Enter the brick length: ");
         int a = sc.nextInt();
         System.out.println("Enter the brick width and press ENTER: ");
         int b = sc.nextInt();
@@ -19,21 +19,34 @@ public class Main {
         System.out.println("Enter the hole height and press ENTER: ");
         int y = sc.nextInt();
 
+        int[] params = {a, b, c};
+        System.out.println(params.toString());
+
         if (a > 0 && b > 0 && c > 0 && x > 0 && y > 0)
         {
 
-            if
-            (
-                    a <= x && b <= y ||
-                            b <= x && a <= y ||
-                            a <= x && c <= y ||
-                            c <= x && a <= y ||
-                            b <= x && c <= y ||
-                            c <= x && b <= y
-            )
-                System.out.println("THE BRICK WILL PASS");
+            if (a <= x)
+            {
+                if (b <= y || c <= y)
+                    System.out.println("THE BRICK WILL PASS");
+            }
+
+            else if (b <= x)
+            {
+                if (a <= y || c <= y)
+                    System.out.println("THE BRICK WILL PASS");
+            }
+
+            else if (c <= x)
+            {
+                if (a <= y || b <= y)
+                    System.out.println("THE BRICK WILL PASS");
+            }
+
             else
+            {
                 System.out.println("THE BRICK WILL NOT PASS");
+            }
         }
         else
             System.out.println("Please enter positive numbers only");

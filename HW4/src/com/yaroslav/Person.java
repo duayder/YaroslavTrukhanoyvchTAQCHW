@@ -48,13 +48,25 @@ public class Person {
 
     public void inputInfo()
     {
-        String name = this.getName();
-        int birthYear = this.getBirthYear();
+        System.out.println("Enter student`s name: ");
+        String newName = sc.nextLine();
+        this.setName(newName);
+
+        System.out.println("Enter student`s birth year: ");
+        int newBirthYear = sc.nextInt();
+
+        while (newBirthYear <= 1900)
+        {
+            System.out.println("Invalid year. Please enter year after 1900");
+            newBirthYear = sc.nextInt();
+        }
+
+        this.setBirthYear(newBirthYear);
     }
 
     public void outputInfo()
     {
-        age = this.calculateAge();
+        int age = this.calculateAge();
 
         System.out.println("Student`s name is " + name);
         System.out.println("Student`s birthyear is " + birthYear);
